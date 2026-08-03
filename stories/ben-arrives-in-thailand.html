@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ben arrives in Thailand — Learn Thai through content</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">Learn Thai through content</a>
+    <nav><a href="../index.html">Songs</a><a href="ben-arrives-in-thailand.html">Stories</a><a href="../practice.html">Writing practice</a></nav>
+  </header>
+
+  <main>
+    <section class="hero story-hero">
+      <p class="eyebrow">Story 1 · Beginner</p>
+      <h1>Ben arrives in Thailand</h1>
+      <p>Read a first day in Thailand one sentence at a time. Each step gives you meaning, vocabulary, grammar and writing practice.</p>
+      <div class="story-meta"><span class="tag">10 sentences</span><span class="tag">About 8 minutes</span><span class="tag">Travel and family</span></div>
+    </section>
+
+    <section class="story-map" aria-label="Story map">
+      <span>✈️ Airport</span><span>→</span><span>🚕 Taxi</span><span>→</span><span>🏠 Home</span><span>→</span><span>🍜 Dinner</span><span>→</span><span>🥊 Gym</span>
+    </section>
+
+    <section class="guided-lesson story-lesson" aria-live="polite">
+      <div class="lesson-toolbar">
+        <div><p class="eyebrow" id="story-section">Chapter 1</p><h2 id="story-title">Arrival</h2></div>
+        <p class="phrase-progress"><span id="story-number">1</span> / <span id="story-total">10</span></p>
+      </div>
+
+      <div class="phrase-stage story-stage">
+        <p class="thai phrase-thai" id="story-thai"></p>
+        <p class="pronunciation" id="story-pronunciation"></p>
+        <p><strong>Natural meaning:</strong> <span id="story-meaning"></span></p>
+
+        <div class="story-tabs" role="tablist">
+          <button class="story-tab active" data-tab="words" type="button">Words</button>
+          <button class="story-tab" data-tab="grammar" type="button">Grammar</button>
+          <button class="story-tab" data-tab="practice" type="button">Practice</button>
+        </div>
+
+        <div class="story-panel" id="panel-words"></div>
+        <div class="story-panel" id="panel-grammar" hidden></div>
+        <div class="story-panel" id="panel-practice" hidden>
+          <form id="story-practice-form">
+            <input id="story-practice-input" lang="th" autocomplete="off" placeholder="พิมพ์ภาษาไทย">
+            <button class="button" type="submit">Check answer</button>
+            <p class="feedback" id="story-feedback" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+
+      <div class="phrase-controls">
+        <button class="button secondary" id="story-previous" type="button">← Previous</button>
+        <button class="button" id="story-next" type="button">Next →</button>
+      </div>
+      <div class="lesson-dots" id="story-dots" aria-label="Jump to a sentence"></div>
+    </section>
+  </main>
+
+  <footer>Original learner story created for Thai reading practice.</footer>
+  <script src="ben-arrives-in-thailand.js"></script>
+</body>
+</html>
