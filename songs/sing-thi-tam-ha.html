@@ -16,7 +16,7 @@
     <section class="hero song-hero">
       <p class="eyebrow">Full guided lesson · getsunova</p>
       <h1 class="thai">สิ่งที่ตามหา</h1>
-      <p>Move through the song phrase by phrase. Each step gives you the Thai, pronunciation, natural meaning and a short language note.</p>
+      <p>Move through the song phrase by phrase. Each step gives you the Thai, pronunciation, natural meaning and a clear breakdown of how the sentence works.</p>
     </section>
 
     <section class="sticky-player">
@@ -39,8 +39,38 @@
       <div class="phrase-stage">
         <p class="thai phrase-thai" id="phrase-thai"></p>
         <p class="pronunciation" id="phrase-pronunciation"></p>
-        <p><strong>Natural meaning:</strong> <span id="phrase-meaning"></span></p>
+        <div class="meaning-panel">
+          <p class="panel-label">Natural meaning</p>
+          <p class="natural-meaning" id="phrase-meaning"></p>
+        </div>
         <p><strong>Language note:</strong> <span id="phrase-note"></span></p>
+
+        <details class="phrase-breakdown" id="phrase-breakdown">
+          <summary>Explore this phrase word by word</summary>
+          <div class="breakdown-content">
+            <div class="breakdown-section" id="word-breakdown-section">
+              <p class="panel-label">Word breakdown</p>
+              <div class="word-breakdown-list" id="word-breakdown-list"></div>
+            </div>
+
+            <div class="breakdown-grid">
+              <section class="breakdown-card" id="grammar-card">
+                <p class="panel-label">How it works</p>
+                <p id="phrase-grammar"></p>
+              </section>
+              <section class="breakdown-card" id="pattern-card">
+                <p class="panel-label">Pattern to own</p>
+                <p class="thai pattern-thai" id="pattern-thai"></p>
+                <p id="pattern-meaning"></p>
+              </section>
+            </div>
+
+            <section class="breakdown-card" id="examples-card">
+              <p class="panel-label">Use it yourself</p>
+              <div id="phrase-examples"></div>
+            </section>
+          </div>
+        </details>
       </div>
 
       <div class="phrase-controls">
