@@ -4,7 +4,31 @@ const songPhrases = [
   {section:'Lesson 1',title:'Loneliness and feeling lost',thai:'และแม้พบเจอผู้คนมากมาย',pronunciation:'láe máe phóp-jer phûu-khon mâak-maai',meaning:'And even though I meet so many people.',note:'แม้ means “even though”. พบเจอ means to meet or encounter.'},
   {section:'Lesson 1',title:'Loneliness and feeling lost',thai:'ภายในใจยังเหมือนบางอย่างขาดหาย',pronunciation:'phaai-nai jai yang mʉ̌an baang-yàang khàat-hǎai',meaning:'Inside, it still feels as though something is missing.',note:'บางอย่าง means something. ขาดหาย means missing or absent.'},
 
-  {section:'Lesson 2',title:'Searching and losing hope',thai:'สิ่งใดที่ใจฉันนั้นคอยมานาน',pronunciation:'sìng dai thîi jai chǎn nán khoi maa naan',meaning:'Whatever it is that my heart has long been waiting for.',note:'สิ่งใด is a poetic “what thing”. คอย means to wait or keep waiting.'},
+  {
+    section:'Lesson 2',
+    title:'Searching and losing hope',
+    thai:'สิ่งใดที่ใจฉันนั้นคอยมานาน',
+    pronunciation:'sìng dai thîi jai chǎn nán khoi maa naan',
+    meaning:'The thing my heart has been waiting for all this time.',
+    note:'A poetic sentence built around สิ่งใด and the continuing-action pattern คอยมานาน.',
+    words:[
+      {thai:'สิ่งใด',meaning:'whatever / what thing',note:'Refers to an unspecified thing.'},
+      {thai:'ที่',meaning:'that / which',note:'Relative marker connecting the thing to the description that follows.'},
+      {thai:'ใจ',meaning:'heart',note:'The emotional heart or inner feelings.'},
+      {thai:'ฉัน',meaning:'I / me / my',note:'Here ใจฉัน means “my heart”.'},
+      {thai:'นั้น',meaning:'that / that very',note:'Adds emphasis and poetic weight.'},
+      {thai:'คอย',meaning:'wait for / await',note:'Suggests continuing or expectant waiting.'},
+      {thai:'มา',meaning:'continuing up to now',note:'Shows the action began earlier and continued toward the present.'},
+      {thai:'นาน',meaning:'for a long time',note:'Describes the duration.'}
+    ],
+    grammar:'ใจฉัน is literally “heart + me”, but naturally means “my heart”. คอยมานาน works as a unit: the waiting began in the past and has continued up to now.',
+    pattern:{thai:'คอยมานาน',meaning:'have been waiting for a long time'},
+    examples:[
+      {thai:'นี่คือสิ่งที่ผมตามหามานาน',meaning:'This is what I’ve been looking for for a long time.'},
+      {thai:'ผมคิดเรื่องนี้มานานแล้ว',meaning:'I’ve been thinking about this for a long time.'},
+      {thai:'ผมอยากมาที่นี่นานแล้ว',meaning:'I’ve wanted to come here for a long time.'}
+    ]
+  },
   {section:'Lesson 2',title:'Searching and losing hope',thai:'ยังคงอยากจะค้นให้เจอสักครั้ง',pronunciation:'yang-khong yàak jà khón hâi jer sàk khráng',meaning:'I still want to search until I find it, just once.',note:'ให้เจอ means until it is found. สักครั้ง means at least once.'},
   {section:'Lesson 2',title:'Searching and losing hope',thai:'แม้คืนและวันจะเลยผ่านไป',pronunciation:'máe khʉʉn láe wan jà loei phàan pai',meaning:'Even as nights and days pass by.',note:'เลยผ่านไป gives the sense of time passing and moving on.'},
   {section:'Lesson 2',title:'Searching and losing hope',thai:'จนบางทีก็เริ่มรู้สึกหมดหวัง',pronunciation:'jon baang-thii gâw rœ̂œm rúu-sʉ̀k mòt-wǎng',meaning:'Until sometimes I begin to feel hopeless.',note:'จน introduces a result. หมดหวัง means to lose hope.'},
@@ -43,6 +67,12 @@ const elements = {
   pronunciation: document.getElementById('phrase-pronunciation'),
   meaning: document.getElementById('phrase-meaning'),
   note: document.getElementById('phrase-note'),
+  breakdown: document.getElementById('phrase-breakdown'),
+  wordList: document.getElementById('word-breakdown-list'),
+  grammar: document.getElementById('phrase-grammar'),
+  patternThai: document.getElementById('pattern-thai'),
+  patternMeaning: document.getElementById('pattern-meaning'),
+  examples: document.getElementById('phrase-examples'),
   previous: document.getElementById('previous-phrase'),
   next: document.getElementById('next-phrase'),
   dots: document.getElementById('lesson-dots'),
@@ -62,6 +92,31 @@ songPhrases.forEach((phrase, index) => {
   elements.dots.appendChild(button);
 });
 
+function renderBreakdown(phrase) {
+  const hasBreakdown = Array.isArray(phrase.words) && phrase.words.length > 0;
+  elements.breakdown.hidden = !hasBreakdown;
+  elements.breakdown.open = hasBreakdown;
+  if (!hasBreakdown) return;
+
+  elements.wordList.innerHTML = phrase.words.map(word => `
+    <div class="word-breakdown-row">
+      <div class="word-thai" lang="th">${word.thai}</div>
+      <div class="word-meaning">${word.meaning}</div>
+      <div class="word-note">${word.note}</div>
+    </div>
+  `).join('');
+
+  elements.grammar.textContent = phrase.grammar || '';
+  elements.patternThai.textContent = phrase.pattern?.thai || '';
+  elements.patternMeaning.textContent = phrase.pattern?.meaning || '';
+  elements.examples.innerHTML = (phrase.examples || []).map(example => `
+    <div class="example-row">
+      <p class="thai" lang="th">${example.thai}</p>
+      <p>${example.meaning}</p>
+    </div>
+  `).join('');
+}
+
 function showPhrase(index) {
   currentPhrase = Math.max(0, Math.min(index, songPhrases.length - 1));
   const phrase = songPhrases[currentPhrase];
@@ -72,6 +127,7 @@ function showPhrase(index) {
   elements.pronunciation.textContent = phrase.pronunciation;
   elements.meaning.textContent = phrase.meaning;
   elements.note.textContent = phrase.note;
+  renderBreakdown(phrase);
   elements.previous.disabled = currentPhrase === 0;
   elements.next.disabled = currentPhrase === songPhrases.length - 1;
   elements.next.textContent = currentPhrase === songPhrases.length - 1 ? 'End of song' : 'Next phrase →';
