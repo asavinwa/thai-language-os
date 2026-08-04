@@ -28,13 +28,22 @@
       <iframe class="video" src="https://www.youtube.com/embed/r6lzAFlem_o" title="สิ่งที่ตามหา by getsunova" allowfullscreen></iframe>
     </section>
 
+    <section class="top-phrase-nav" aria-label="Phrase navigation">
+      <button class="button secondary" id="previous-phrase" type="button">← Previous</button>
+      <div class="top-phrase-progress">
+        <span class="eyebrow" id="section-label">Lesson 1</span>
+        <strong><span id="phrase-number">1</span> / <span id="phrase-total">1</span></strong>
+      </div>
+      <button class="button" id="next-phrase" type="button">Next →</button>
+    </section>
+
     <section class="guided-lesson" aria-live="polite">
       <div class="lesson-toolbar">
         <div>
-          <p class="eyebrow" id="section-label">Lesson 1</p>
+          <p class="eyebrow">Current section</p>
           <h2 id="section-title">Loneliness and feeling lost</h2>
         </div>
-        <p class="phrase-progress"><span id="phrase-number">1</span> / <span id="phrase-total">1</span></p>
+        <button class="save-phrase-button" id="save-phrase" type="button" aria-pressed="false">☆ Save phrase</button>
       </div>
 
       <div class="phrase-stage">
@@ -46,7 +55,7 @@
         </div>
         <p><strong>Language note:</strong> <span id="phrase-note"></span></p>
 
-        <details class="phrase-breakdown" id="phrase-breakdown">
+        <details class="phrase-breakdown" id="phrase-breakdown" open>
           <summary>Explore this phrase word by word</summary>
           <div class="breakdown-content">
             <div class="breakdown-section" id="word-breakdown-section">
@@ -70,13 +79,13 @@
               <p class="panel-label">Use it yourself</p>
               <div id="phrase-examples"></div>
             </section>
+
+            <section class="breakdown-card your-turn-card">
+              <p class="panel-label">Your turn</p>
+              <p id="your-turn-prompt"></p>
+            </section>
           </div>
         </details>
-      </div>
-
-      <div class="phrase-controls">
-        <button class="button secondary" id="previous-phrase" type="button">← Previous phrase</button>
-        <button class="button" id="next-phrase" type="button">Next phrase →</button>
       </div>
 
       <div class="lesson-dots" id="lesson-dots" aria-label="Jump to a phrase"></div>
