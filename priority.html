@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>What should I do now? | Thai Language OS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">Thai Language OS 🇹🇭</a>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="priority.html" aria-current="page">Priority engine</a>
+      <a href="songs/sing-thi-tam-ha.html">Songs</a>
+      <a href="stories/ben-arrives-in-thailand.html">Stories</a>
+    </nav>
+  </header>
+
+  <main class="priority-shell">
+    <section class="priority-hero">
+      <p class="eyebrow">Your teacher decides</p>
+      <h1>What should I do now?</h1>
+      <p>Answer three quick questions. The engine gives you one ordered session based on your current goal: speaking confidently with family.</p>
+    </section>
+
+    <section class="priority-grid">
+      <form class="dashboard-card priority-form" id="priorityForm">
+        <div class="priority-question">
+          <label for="minutes">How much time do you have?</label>
+          <select id="minutes" name="minutes">
+            <option value="20">20 minutes</option>
+            <option value="30">30 minutes</option>
+            <option value="45">45 minutes</option>
+            <option value="60" selected>60 minutes</option>
+          </select>
+        </div>
+
+        <div class="priority-question">
+          <label for="energy">How is your energy?</label>
+          <select id="energy" name="energy">
+            <option value="low">Low — make it easy to start</option>
+            <option value="normal" selected>Normal — give me a proper session</option>
+            <option value="high">High — push me</option>
+          </select>
+        </div>
+
+        <fieldset class="priority-question">
+          <legend>What have you done most recently?</legend>
+          <div class="priority-options">
+            <label><input type="radio" name="recent" value="speaking"> Speaking</label>
+            <label><input type="radio" name="recent" value="reading"> Reading or story</label>
+            <label><input type="radio" name="recent" value="music"> Thai music</label>
+            <label><input type="radio" name="recent" value="vocab"> Drops or vocabulary</label>
+            <label><input type="radio" name="recent" value="building" checked> Building the website</label>
+            <label><input type="radio" name="recent" value="none"> Nothing recently</label>
+          </div>
+        </fieldset>
+
+        <button class="button" type="submit">Tell me exactly what to do</button>
+      </form>
+
+      <aside class="dashboard-card teacher-note">
+        <p class="eyebrow">Current diagnosis</p>
+        <h2>You need production, not more resources.</h2>
+        <p>You have created useful lessons and gathered plenty of material. Your highest-value work now is speaking, retrieving phrases from memory and using Thai before English.</p>
+        <p><strong>Default rule:</strong> building the OS does not count as Thai practice.</p>
+      </aside>
+    </section>
+
+    <section class="priority-result" id="priorityResult" aria-live="polite">
+      <div class="priority-result-head">
+        <div>
+          <p class="eyebrow">Your next session</p>
+          <h2 id="missionTitle">Own one useful sentence and use it aloud.</h2>
+        </div>
+        <span class="priority-total" id="planTotal">60 minutes</span>
+      </div>
+      <p class="priority-reason" id="priorityReason">You have spent more time building learning materials than producing Thai. Speaking comes first.</p>
+      <ol class="priority-plan" id="priorityPlan"></ol>
+      <div class="priority-command">
+        <strong id="firstCommand">Start now: open ChatGPT voice mode and speak only Thai for 20 minutes.</strong>
+        <a class="button secondary" id="primaryLink" href="stories/ben-arrives-in-thailand.html">Open supporting lesson</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>The system chooses. You practise. Review before adding more.</footer>
+  <script src="priority.js"></script>
+</body>
+</html>
