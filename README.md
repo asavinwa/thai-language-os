@@ -23,6 +23,7 @@ Update those files there, not here.
 
 ## What is in this repository
 
+- [`learning/current-level.md`](learning/current-level.md) — the learner profile: current level, learning preferences, teaching style and the pronoun rules every lesson, song and story should follow
 - `index.html` — daily dashboard and log
 - `priority.html` — the priority engine that decides what to practise today
 - `practice.html` — writing practice
