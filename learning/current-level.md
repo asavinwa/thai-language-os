@@ -224,6 +224,134 @@ These are my primary learning tools.
 
 Lessons should draw on what is already in the system rather than inventing new material. Prefer a sentence from a story I am working through over a sentence invented for the occasion.
 
+## Song-first learning methodology
+
+Thai Language OS is built around mastering one authentic Thai song at a time.
+
+The current song becomes the centre of the entire learning system.
+
+Rather than learning isolated grammar, random vocabulary or disconnected lessons, every activity should be generated from the language contained within the current song.
+
+The objective is to transform the language of the song into language I can naturally use in everyday conversation.
+
+This section states the methodology as it applies to me. The full system design — mastery thresholds, how to choose the next song, and what a song's lesson file must contain — is in [`frameworks/song-based-learning.md`](../frameworks/song-based-learning.md).
+
+It does not displace the priority order below. The song decides what I practise; the priority order decides how. A word from the song is learned by speaking a sentence that contains it, not by drilling the word.
+
+### Core principle
+
+The goal is not simply to understand the song.
+
+The goal is to make the song part of my active Thai.
+
+When I finish studying a song, I should be able to:
+
+- understand every line
+- recognise every important word
+- explain the grammar
+- read it naturally
+- pronounce it confidently
+- write important sections from memory
+- use the same sentence patterns in conversation
+- create my own sentences using the same structures
+
+Only when this level of mastery has been reached should Thai Language OS recommend moving to a new song.
+
+The last two matter most. The first six can all be true while the song is still passive knowledge — something I recognise rather than something I use.
+
+### Lesson generation
+
+Every lesson should be based on the current song.
+
+Generate lessons using the song's:
+
+- vocabulary
+- sentence patterns
+- grammar
+- pronunciation
+- rhythm
+- cultural references
+
+Avoid introducing unrelated vocabulary unless it directly supports understanding the current song.
+
+### Speaking
+
+Conversation practice should recycle language from the song.
+
+The objective is not to repeat lyrics.
+
+The objective is to use the same grammar and vocabulary naturally in new situations.
+
+A good test of a speaking exercise: it should use the song's grammar in a situation the song never describes. If the answer is a lyric, the exercise was recitation.
+
+### Stories
+
+Reading practice should reuse vocabulary and grammar from the current song whenever possible.
+
+Stories should reinforce the same language in new contexts.
+
+Stories are also where the song's literary language gets converted into speech I would actually use. A pattern that sounds natural in a lyric and strange in conversation should appear in a story in its everyday form.
+
+### Writing
+
+Writing exercises should gradually progress from:
+
+- copying
+- guided writing
+- writing from memory
+- creating original sentences using the same structures
+
+Only the last stage is real production. The first three are scaffolding, and should be dropped as soon as they stop being needed rather than repeated because they feel comfortable.
+
+### Listening
+
+Listening practice should begin with the current song.
+
+Gradually remove support until I can understand the lyrics naturally.
+
+The order support comes away in: transliteration first, then the English meaning, then the Thai text, then slowed playback. The last step is understanding the line at full speed with nothing on screen.
+
+### Vocabulary
+
+Do not teach random vocabulary lists.
+
+Every new word should have a reason for being introduced.
+
+Whenever possible, vocabulary should come directly from the current song.
+
+If a word cannot be pointed to in the current song, the reason for teaching it should be stated out loud.
+
+### Progress
+
+Track mastery separately for:
+
+- Vocabulary
+- Grammar
+- Reading
+- Listening
+- Speaking
+- Writing
+
+The overall objective is mastery rather than completion.
+
+Completion is easy to fake by reaching the end of the lesson list. Mastery is what the six strands are there to measure, and speaking is the one that decides whether a song is finished.
+
+### Long-term objective
+
+Every completed song becomes part of my spoken Thai.
+
+Instead of learning hundreds of disconnected words, I will build my Thai through authentic songs whose language becomes permanently available in conversation.
+
+### Current song
+
+Current song:
+
+สิ่งที่ตามหา
+
+All lessons should assume this is the active learning project until it is fully mastered.
+
+Note that this song uses ฉัน throughout and is literary in places. Both the pronoun rules and the conversion into everyday speech in the sections above apply to it directly.
+
 ## Priority order
 
 Always recommend practice in this order unless there is a specific reason not to.
