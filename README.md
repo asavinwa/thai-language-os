@@ -6,22 +6,26 @@ The goal is not to collect vocabulary.
 
 The goal is to make useful Thai automatic through capture, speaking, correction and repetition.
 
-## Current priorities
+This repository holds the practice site — the songs, stories, writing practice and priority engine I actually use.
 
-- Speak more Thai with family
-- Think in Thai during everyday activities
-- Build confidence speaking without translating
-- Develop practical vocabulary around boxing, food, football and travel
+## Where the core lives
 
-## How the system works
+The core of Thai Language OS now sits in [Asavin OS](https://github.com/asavinwa/asavin-os/tree/main/thai-language-os), alongside the other operating systems.
 
-1. Capture useful Thai from real life.
-2. Correct mistakes and improve phrasing.
-3. Practise a small number of phrases repeatedly.
-4. Use Thai through speaking, writing and everyday interactions.
-5. Move phrases into the owned list once they feel automatic.
+That is the single source of truth for:
 
-## Core files
+- the method and current priorities
+- the [AI voice teacher prompt](https://github.com/asavinwa/asavin-os/blob/main/thai-language-os/prompts/chatgpt-voice-teacher.md)
+- the phrases I am working to own
+- the daily practice log
 
-- `phrases/phrases-i-want-to-own.md` — the active phrases I want to make automatic
-- `daily/` — short daily entries, corrections and practice targets
+Update those files there, not here.
+
+## What is in this repository
+
+- `index.html` — daily dashboard and log
+- `priority.html` — the priority engine that decides what to practise today
+- `practice.html` — writing practice
+- `songs/` — song lessons, one phrase at a time
+- `stories/` — interactive stories
+- `BUILD_LOG.md` — product decisions and what I learned building this
