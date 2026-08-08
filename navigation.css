@@ -1,0 +1,24 @@
+.brand {
+  white-space: nowrap;
+}
+
+.site-header nav {
+  align-items: center;
+  gap: 18px;
+}
+
+.site-header nav a {
+  border-bottom: 2px solid transparent;
+  font-size: 0.92rem;
+  font-weight: 650;
+  padding: 4px 0;
+}
+
+.site-header nav a:hover {
+  color: var(--accent);
+}
+
+.site-header nav a[aria-current="page"] {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
