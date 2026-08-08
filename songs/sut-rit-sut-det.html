@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>สุดฤทธิ์สุดเดช — Learn Thai with music</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="phrase-breakdown.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">Learn Thai with music</a>
+    <nav><a href="index.html">Songs</a><a href="../practice.html">Writing practice</a></nav>
+  </header>
+
+  <main>
+    <section class="hero song-hero">
+      <p class="eyebrow">Full guided lesson · KLEAR</p>
+      <h1 class="thai">สุดฤทธิ์สุดเดช</h1>
+      <p>Learn the language of trust, betrayal and emotional intensity. Move phrase by phrase through pronunciation, natural meaning and patterns you can reuse in real conversation.</p>
+    </section>
+
+    <section class="sticky-player">
+      <div class="sticky-player-copy">
+        <span class="eyebrow">Listen while you learn</span>
+        <strong class="thai">สุดฤทธิ์สุดเดช</strong>
+      </div>
+      <iframe class="video" src="https://www.youtube.com/embed/934CK9FhK_8" title="สุดฤทธิ์สุดเดช by KLEAR" allowfullscreen></iframe>
+    </section>
+
+    <section class="top-phrase-nav" aria-label="Phrase navigation">
+      <button class="button secondary" id="previous-phrase" type="button">← Previous</button>
+      <div class="top-phrase-progress">
+        <span class="eyebrow" id="section-label">Lesson 1</span>
+        <strong><span id="phrase-number">1</span> / <span id="phrase-total">1</span></strong>
+      </div>
+      <button class="button" id="next-phrase" type="button">Next →</button>
+    </section>
+
+    <section class="guided-lesson" aria-live="polite">
+      <div class="lesson-toolbar">
+        <div><p class="eyebrow">Current section</p><h2 id="section-title">Demanding an answer</h2></div>
+        <button class="save-phrase-button" id="save-phrase" type="button" aria-pressed="false">☆ Save phrase</button>
+      </div>
+
+      <div class="phrase-stage">
+        <p class="thai phrase-thai" id="phrase-thai"></p>
+        <p class="pronunciation" id="phrase-pronunciation"></p>
+        <div class="meaning-panel"><p class="panel-label">Natural meaning</p><p class="natural-meaning" id="phrase-meaning"></p></div>
+        <p><strong>Language note:</strong> <span id="phrase-note"></span></p>
+        <details class="phrase-breakdown" id="phrase-breakdown" open>
+          <summary>Explore this phrase word by word</summary>
+          <div class="breakdown-content">
+            <div class="breakdown-section">
+              <p class="panel-label">Word breakdown</p>
+              <div class="word-breakdown-list" id="word-breakdown-list"></div>
+            </div>
+            <div class="breakdown-grid">
+              <section class="breakdown-card"><p class="panel-label">How it works</p><p id="phrase-grammar"></p></section>
+              <section class="breakdown-card"><p class="panel-label">Pattern to own</p><p class="thai pattern-thai" id="pattern-thai"></p><p id="pattern-meaning"></p></section>
+            </div>
+            <section class="breakdown-card"><p class="panel-label">Use it yourself</p><div id="phrase-examples"></div></section>
+            <section class="breakdown-card your-turn-card"><p class="panel-label">Your turn</p><p id="your-turn-prompt"></p></section>
+          </div>
+        </details>
+      </div>
+      <div class="lesson-dots" id="lesson-dots" aria-label="Jump to a phrase"></div>
+    </section>
+
+    <section class="practice-card guided-practice">
+      <p class="eyebrow">Write from memory</p>
+      <h2>Type the current phrase</h2>
+      <form id="guided-practice-form">
+        <input id="guided-practice-input" lang="th" autocomplete="off" placeholder="พิมพ์ภาษาไทย">
+        <button class="button" type="submit">Check answer</button>
+        <p class="feedback" id="guided-practice-feedback" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>Lyrics supplied by the site owner for language-learning use.</footer>
+  <script src="../script.js"></script>
+  <script src="sut-rit-sut-det.js"></script>
+</body>
+</html>
