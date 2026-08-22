@@ -2,6 +2,8 @@
 
 These rules are canonical for stories in Thai Language OS, especially stories built from song lessons.
 
+For stories created as part of **add a song**, follow `ADD-SONG-WORKFLOW.md` first. This file governs the detailed story format within that workflow.
+
 ## 1. Match the established interactive story format
 
 New story pages should follow the same structure and interaction patterns as the established stories such as:
