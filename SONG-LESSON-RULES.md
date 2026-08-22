@@ -1,6 +1,8 @@
 # Song lesson rules
 
-These rules are canonical for every new song added to Thai Language OS.
+These rules are canonical for every full song lesson in Thai Language OS.
+
+For the end-to-end meaning of **add a song**, follow `ADD-SONG-WORKFLOW.md` first. This file governs the detailed lesson format within that workflow.
 
 ## 1. Do not invent a new lesson format
 
