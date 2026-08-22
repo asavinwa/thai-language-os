@@ -26,7 +26,12 @@ The goal is to make useful Thai automatic through capture, speaking, correction 
 - `phrases/phrases-i-want-to-own.md` — the active phrases I want to make automatic
 - `daily/` — short daily entries, corrections and practice targets
 - `SONG-LESSON-RULES.md` — canonical rules for adding songs and building full guided song lessons
+- `STORY-RULES.md` — canonical rules for interactive stories and stories built from songs
 
 ## Song lesson rule
 
-New song pages must follow the established interactive guided-lesson format. Full lyrics must be supplied by the site owner; do not fetch or reconstruct lyrics from external sources. If lyrics have not been supplied, keep the song in the queue and ask for them before building the full lesson.
+New song pages must follow the established interactive guided-lesson format. Lyrics may be supplied by the site owner or researched from reliable sources where appropriate. The finished lesson should work through the meaningful language of the song rather than becoming a static study guide.
+
+## Story rule
+
+Song-derived stories should follow the established interactive story format and normally contain at least 12 guided sentences. Twelve is a minimum, not a fixed template: stories should run as long as needed for a coherent narrative and useful language practice.
