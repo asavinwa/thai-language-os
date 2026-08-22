@@ -25,3 +25,8 @@ The goal is to make useful Thai automatic through capture, speaking, correction 
 
 - `phrases/phrases-i-want-to-own.md` — the active phrases I want to make automatic
 - `daily/` — short daily entries, corrections and practice targets
+- `SONG-LESSON-RULES.md` — canonical rules for adding songs and building full guided song lessons
+
+## Song lesson rule
+
+New song pages must follow the established interactive guided-lesson format. Full lyrics must be supplied by the site owner; do not fetch or reconstruct lyrics from external sources. If lyrics have not been supplied, keep the song in the queue and ask for them before building the full lesson.
