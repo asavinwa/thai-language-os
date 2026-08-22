@@ -1,76 +1,113 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>คนสุดท้าย — Learn Thai with music</title>
-  <link rel="stylesheet" href="../styles.css"><link rel="stylesheet" href="../navigation.css"><link rel="stylesheet" href="phrase-breakdown.css">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../navigation.css">
+  <link rel="stylesheet" href="phrase-breakdown.css">
 </head>
 <body>
-<header class="site-header"><a class="brand" href="../index.html">Thai Language OS 🇹🇭</a><nav><a href="../index.html">Play</a><a href="../priority.html">What to do now</a><a href="index.html" aria-current="page">Songs</a><a href="../stories/index.html">Stories</a><a href="../practice.html">Writing</a></nav></header>
-<main>
-<section class="hero song-hero"><p class="eyebrow">Full guided lesson · อัสนี & วสันต์</p><h1 class="thai">คนสุดท้าย</h1><p>Move through the song phrase by phrase. Learn pronunciation, natural meaning, word breakdowns and Thai patterns you can reuse in conversation.</p><p class="muted">เพลงประกอบละครเรื่อง เงา · พ.ศ. 2543 · GMM Grammy</p></section>
-<section class="sticky-player"><div class="sticky-player-copy"><span class="eyebrow">Listen while you learn</span><strong class="thai">คนสุดท้าย</strong></div><iframe class="video" src="https://www.youtube.com/embed/01INkq30lE8" title="คนสุดท้าย by อัสนี & วสันต์" allowfullscreen></iframe></section>
+  <header class="site-header">
+    <a class="brand" href="../index.html">Thai Language OS 🇹🇭</a>
+    <nav><a href="../index.html">Play</a><a href="../priority.html">What to do now</a><a href="index.html" aria-current="page">Songs</a><a href="../stories/index.html">Stories</a><a href="../practice.html">Writing</a></nav>
+  </header>
 
-<section class="content-section">
-  <details class="phrase-breakdown" open>
-    <summary>Full lyrics</summary>
-    <div class="breakdown-content">
-      <p class="panel-label">คนสุดท้าย · อัสนี & วสันต์ โชติกุล</p>
-      <div class="thai" style="font-size:1.18rem;line-height:1.9;white-space:pre-line">ไม่เคยมีใจให้ใครมาก่อน
-ไม่เคยอ่อนให้ความรักเลย
-จะมีใครๆ มากมาย คุ้นเคย
-แต่ไม่เคยมีใครอย่างเธอ
+  <main>
+    <section class="hero song-hero">
+      <p class="eyebrow">Full guided lesson · อัสนี & วสันต์</p>
+      <h1 class="thai">คนสุดท้าย</h1>
+      <p>Move through the song phrase by phrase. Each step gives you the Thai, pronunciation, natural meaning and a breakdown of how the sentence works.</p>
+      <p class="muted">เพลงประกอบละครเรื่อง เงา · พ.ศ. 2543 · GMM Grammy</p>
+    </section>
 
-ฉันเคยบอกกับเธอหรือยัง
-ว่าเธอมีความหมายเพียงใด
-กับคนที่ใจมันด้านชา
-ฉันเคยบอกกับเธอหรือยัง
-จากวันนี้และทุกเวลา
-จะมีแต่คำว่ารักเธอ
+    <section class="sticky-player">
+      <div class="sticky-player-copy">
+        <span class="eyebrow">Listen while you learn</span>
+        <strong class="thai">คนสุดท้าย</strong>
+      </div>
+      <iframe class="video" src="https://www.youtube.com/embed/01INkq30lE8" title="คนสุดท้าย by อัสนี & วสันต์" allowfullscreen></iframe>
+    </section>
 
-จากฉันคนเดิม
-จากรักไม่เป็น
-จะขอเป็นคน
-ที่รักเธอยิ่งกว่าคนไหนๆ
-จากนี้คือเธอ
-จากนี้จนวัน ตาย
-เธอคือสุดท้าย
-ของทั้งชีวิตและหัวใจ
+    <section class="top-phrase-nav" aria-label="Phrase navigation">
+      <button class="button secondary" id="previous-phrase" type="button">← Previous</button>
+      <div class="top-phrase-progress">
+        <span class="eyebrow" id="section-label">Lesson 1</span>
+        <strong><span id="phrase-number">1</span> / <span id="phrase-total">1</span></strong>
+      </div>
+      <button class="button" id="next-phrase" type="button">Next →</button>
+    </section>
 
-จากฉันคนเดิม
-จากรักไม่เป็น
-จะขอเป็นคน
-ที่รักเธอยิ่งกว่าคนไหนๆ
-จากนี้คือเธอ
-จากนี้จนวัน ตาย
-เธอคือสุดท้าย
-ของทั้งชีวิตและหัวใจ
+    <section class="guided-lesson" aria-live="polite">
+      <div class="lesson-toolbar">
+        <div>
+          <p class="eyebrow">Current section</p>
+          <h2 id="section-title">Before this love</h2>
+        </div>
+        <button class="save-phrase-button" id="save-phrase" type="button" aria-pressed="false">☆ Save phrase</button>
+      </div>
 
-ฉันเคยบอกกับเธอหรือยัง
-ว่าเธอมีความหมายเพียงใด
-กับคนที่ใจมันด้านชา
-ฉันเคยบอกกับเธอหรือยัง
-จากวันนี้และทุกเวลา
-จะมีแต่คำว่ารักเธอ
+      <div class="phrase-stage">
+        <p class="thai phrase-thai" id="phrase-thai"></p>
+        <p class="pronunciation" id="phrase-pronunciation"></p>
+        <div class="meaning-panel">
+          <p class="panel-label">Natural meaning</p>
+          <p class="natural-meaning" id="phrase-meaning"></p>
+        </div>
+        <p><strong>Language note:</strong> <span id="phrase-note"></span></p>
 
-จากฉันคนเดิม
-จากรักไม่เป็น
-จะขอเป็นคน
-ที่รักเธอยิ่งกว่าคนไหนๆ
-จากนี้คือเธอ
-จากนี้จนวัน ตาย
-เธอคือสุดท้าย
-ของทั้งชีวิตและหัวใจ
+        <details class="phrase-breakdown" id="phrase-breakdown" open>
+          <summary>Explore this phrase word by word</summary>
+          <div class="breakdown-content">
+            <div class="breakdown-section">
+              <p class="panel-label">Word breakdown</p>
+              <p class="word-history-intro">Repeated words are tracked as you move through the song, so you can see which vocabulary keeps returning.</p>
+              <div class="word-breakdown-list" id="word-breakdown-list"></div>
+            </div>
 
-ไม่ว่าวันไหน
-ไม่ว่าเมื่อไร ฉันรักเธอ</div>
-    </div>
-  </details>
-</section>
+            <div class="breakdown-grid">
+              <section class="breakdown-card">
+                <p class="panel-label">How it works</p>
+                <p id="phrase-grammar"></p>
+              </section>
+              <section class="breakdown-card">
+                <p class="panel-label">Pattern to own</p>
+                <p class="thai pattern-thai" id="pattern-thai"></p>
+                <p id="pattern-meaning"></p>
+              </section>
+            </div>
 
-<section class="top-phrase-nav" aria-label="Phrase navigation"><button class="button secondary" id="previous-phrase" type="button">← Previous</button><div class="top-phrase-progress"><span class="eyebrow" id="section-label">Lesson 1</span><strong><span id="phrase-number">1</span> / <span id="phrase-total">1</span></strong></div><button class="button" id="next-phrase" type="button">Next →</button></section>
-<section class="guided-lesson" aria-live="polite"><div class="lesson-toolbar"><div><p class="eyebrow">Current section</p><h2 id="section-title">The title and commitment</h2></div><button class="save-phrase-button" id="save-phrase" type="button" aria-pressed="false">☆ Save phrase</button></div><div class="phrase-stage"><p class="thai phrase-thai" id="phrase-thai"></p><p class="pronunciation" id="phrase-pronunciation"></p><div class="meaning-panel"><p class="panel-label">Natural meaning</p><p class="natural-meaning" id="phrase-meaning"></p></div><p><strong>Language note:</strong> <span id="phrase-note"></span></p><details class="phrase-breakdown" id="phrase-breakdown" open><summary>Explore this phrase word by word</summary><div class="breakdown-content"><div class="breakdown-section"><p class="panel-label">Word breakdown</p><div class="word-breakdown-list" id="word-breakdown-list"></div></div><div class="breakdown-grid"><section class="breakdown-card"><p class="panel-label">How it works</p><p id="phrase-grammar"></p></section><section class="breakdown-card"><p class="panel-label">Pattern to own</p><p class="thai pattern-thai" id="pattern-thai"></p><p id="pattern-meaning"></p></section></div><section class="breakdown-card"><p class="panel-label">Use it yourself</p><div id="phrase-examples"></div></section><section class="breakdown-card your-turn-card"><p class="panel-label">Your turn</p><p id="your-turn-prompt"></p></section></div></details></div><div class="lesson-dots" id="lesson-dots" aria-label="Jump to a phrase"></div></section>
-<section class="practice-card guided-practice"><p class="eyebrow">Write from memory</p><h2>Type the current phrase</h2><form id="guided-practice-form"><input id="guided-practice-input" lang="th" autocomplete="off" placeholder="พิมพ์ภาษาไทย"><button class="button" type="submit">Check answer</button><p class="feedback" id="guided-practice-feedback" aria-live="polite"></p></form></section>
-</main>
-<footer>Lyrics supplied by the site owner for language-learning use.</footer><script src="../script.js"></script><script src="khon-sut-thai.js"></script><script src="vocabulary-tracker.js"></script>
-</body></html>
+            <section class="breakdown-card">
+              <p class="panel-label">Use it yourself</p>
+              <div id="phrase-examples"></div>
+            </section>
+
+            <section class="breakdown-card your-turn-card">
+              <p class="panel-label">Your turn</p>
+              <p id="your-turn-prompt"></p>
+            </section>
+          </div>
+        </details>
+      </div>
+
+      <div class="lesson-dots" id="lesson-dots" aria-label="Jump to a phrase"></div>
+    </section>
+
+    <section class="practice-card guided-practice">
+      <p class="eyebrow">Write from memory</p>
+      <h2 id="practice-prompt">Type the current phrase</h2>
+      <form id="guided-practice-form">
+        <input id="guided-practice-input" lang="th" autocomplete="off" placeholder="พิมพ์ภาษาไทย">
+        <button class="button" type="submit">Check answer</button>
+        <p class="feedback" id="guided-practice-feedback" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>Lyrics supplied by the site owner for language-learning use.</footer>
+  <script src="../script.js"></script>
+  <script src="khon-sut-thai.js"></script>
+  <script src="vocabulary-tracker.js"></script>
+</body>
+</html>
