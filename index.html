@@ -11,7 +11,7 @@
   <header class="site-header">
     <a class="brand" href="index.html">Thai Language OS 🇹🇭</a>
     <nav>
-      <a href="index.html" aria-current="page">Dashboard</a>
+      <a href="index.html" aria-current="page">Play</a>
       <a href="priority.html">What to do now</a>
       <a href="songs/index.html">Songs</a>
       <a href="stories/index.html">Stories</a>
@@ -19,106 +19,82 @@
     </nav>
   </header>
 
-  <main class="dashboard-shell">
-    <section class="dashboard-hero">
-      <div>
-        <p class="eyebrow">Your personal Thai practice system</p>
-        <h1>Make useful Thai automatic.</h1>
-        <p>Speak, read, listen and think in Thai every day. The goal is confidence with family—not perfect grammar.</p>
-        <a class="button priority-cta" href="priority.html">Tell me what to do now →</a>
+  <main class="play-shell">
+    <section class="play-hero">
+      <p class="eyebrow">Thai, without turning it into homework</p>
+      <h1>Got 30 minutes?</h1>
+      <p>Pick whatever sounds fun. No streaks. No catching up. Just spend a bit of time with Thai.</p>
+      <button class="button surprise-button" id="surpriseMe">Surprise me →</button>
+    </section>
+
+    <section class="play-grid" aria-label="Choose a Thai activity">
+      <button class="play-card" data-mode="music" type="button">
+        <span class="play-icon" aria-hidden="true">🎵</span>
+        <span class="play-copy"><strong>Music</strong><small>Learn Thai through a song you actually like.</small></span>
+        <span class="play-arrow" aria-hidden="true">→</span>
+      </button>
+
+      <button class="play-card" data-mode="phrases" type="button">
+        <span class="play-icon" aria-hidden="true">💬</span>
+        <span class="play-copy"><strong>Phrases</strong><small>Pick up useful Thai you can imagine saying.</small></span>
+        <span class="play-arrow" aria-hidden="true">→</span>
+      </button>
+
+      <button class="play-card" data-mode="speak" type="button">
+        <span class="play-icon" aria-hidden="true">🗣️</span>
+        <span class="play-copy"><strong>Speak</strong><small>Use ChatGPT voice and try to stay in Thai.</small></span>
+        <span class="play-arrow" aria-hidden="true">→</span>
+      </button>
+
+      <button class="play-card" data-mode="watch" type="button">
+        <span class="play-icon" aria-hidden="true">🎬</span>
+        <span class="play-copy"><strong>Watch</strong><small>Turn Netflix or YouTube into a listening game.</small></span>
+        <span class="play-arrow" aria-hidden="true">→</span>
+      </button>
+
+      <button class="play-card" data-mode="read" type="button">
+        <span class="play-icon" aria-hidden="true">📖</span>
+        <span class="play-copy"><strong>Read</strong><small>Work through a short Thai story without rushing.</small></span>
+        <span class="play-arrow" aria-hidden="true">→</span>
+      </button>
+
+      <button class="play-card" data-mode="play" type="button">
+        <span class="play-icon" aria-hidden="true">🎮</span>
+        <span class="play-copy"><strong>Play</strong><small>Quick recall, phrase challenges and mini games.</small></span>
+        <span class="play-arrow" aria-hidden="true">→</span>
+      </button>
+    </section>
+
+    <section class="activity-stage" id="activityStage" aria-live="polite">
+      <div class="activity-stage-copy">
+        <p class="eyebrow" id="activityEyebrow">Pick something above</p>
+        <h2 id="activityTitle">Your half hour starts here.</h2>
+        <p id="activityIntro">Choose the kind of Thai you feel like doing and I’ll give you a simple 30-minute session.</p>
+        <ol class="activity-steps" id="activitySteps"></ol>
+        <div class="activity-actions" id="activityActions"></div>
       </div>
-      <aside class="streak-card">
-        <span>Current streak</span>
-        <strong id="streakCount">0 days</strong>
-        <small>Mark today complete to begin.</small>
+      <aside class="activity-rule">
+        <strong>The only rule</strong>
+        <p>Stop when it feels like work. Come back through a different door next time.</p>
       </aside>
     </section>
 
-    <section id="today" class="dashboard-grid">
-      <article class="dashboard-card today-card">
-        <p class="eyebrow">Today's mission</p>
-        <h2>Reach for Thai first.</h2>
-        <p>Use Thai before English in one real family interaction.</p>
-        <div class="habit-list" id="habitList">
-          <label><input type="checkbox" data-habit="think"> Think in Thai for 5 minutes</label>
-          <label><input type="checkbox" data-habit="read"> Read Thai for 10 minutes</label>
-          <label><input type="checkbox" data-habit="speak"> Speak aloud for 10 minutes</label>
-          <label><input type="checkbox" data-habit="family"> Have one family conversation</label>
-          <label><input type="checkbox" data-habit="music"> Listen to one Thai song</label>
-          <label><input type="checkbox" data-habit="phrase"> Capture one useful phrase</label>
-        </div>
-        <button class="button" id="completeDay">Complete today</button>
-      </article>
-
-      <article class="dashboard-card">
-        <p class="eyebrow">This week's theme</p>
-        <h2>Family conversations</h2>
-        <p>Ask follow-up questions rather than only answering.</p>
-        <div class="phrase-stack">
-          <span>วันนี้เป็นยังไงบ้าง</span>
-          <small>How was today?</small>
-          <span>แล้วหลังจากนั้นล่ะ</span>
-          <small>And what happened after that?</small>
-          <span>จริงเหรอ แล้วทำยังไงต่อ</span>
-          <small>Really? What did you do next?</small>
-        </div>
-      </article>
-
-      <article class="dashboard-card cheat-card">
-        <p class="eyebrow">Today's cheat sheet</p>
-        <h2>Keep the conversation moving</h2>
-        <ul>
-          <li><strong>ขอคิดแป๊บหนึ่ง</strong> — Let me think for a moment.</li>
-          <li><strong>หมายความว่า...</strong> — I mean...</li>
-          <li><strong>ผมไม่รู้คำนี้ แต่...</strong> — I don't know this word, but...</li>
-          <li><strong>พูดอีกทีได้ไหม</strong> — Can you say that again?</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="calendar" class="content-section">
+    <section class="continue-section">
       <div class="section-heading">
-        <div><p class="eyebrow">Consistency</p><h2>Seven-day calendar</h2></div>
-        <span class="tag">Holiday mode</span>
+        <div>
+          <p class="eyebrow">Already in the OS</p>
+          <h2>Carry on where you left off</h2>
+        </div>
       </div>
-      <div class="calendar-grid" id="calendarGrid"></div>
-    </section>
-
-    <section class="dashboard-grid compact-grid">
-      <article class="dashboard-card">
-        <p class="eyebrow">Speaking prompt</p>
-        <h2>Tell someone about your day</h2>
-        <p>Speak for two minutes. Note three gaps. Learn only those phrases, then repeat.</p>
-      </article>
-      <article class="dashboard-card">
-        <p class="eyebrow">Reading prompt</p>
-        <h2>Read something short</h2>
-        <p>Read once for meaning, once aloud, then summarise it in two Thai sentences.</p>
-      </article>
-      <article id="music" class="dashboard-card">
-        <p class="eyebrow">Music practice</p>
-        <h2>สุดฤทธิ์สุดเดช</h2>
-        <p>New lesson: learn the Thai of trust, betrayal and emotional intensity with KLEAR.</p>
-        <a class="text-link" href="songs/sut-rit-sut-det.html">Open KLEAR lesson →</a>
-        <br><a class="text-link" href="songs/index.html">Browse all songs →</a>
-      </article>
-    </section>
-
-    <section class="content-section">
-      <div class="section-heading">
-        <div><p class="eyebrow">Daily log</p><h2>What happened today?</h2></div>
+      <div class="continue-grid">
+        <a class="continue-card" href="songs/index.html"><span>🎵</span><strong>Song lessons</strong><small>Go back to the songs already in your library.</small></a>
+        <a class="continue-card" href="stories/index.html"><span>📖</span><strong>Thai stories</strong><small>Read for meaning, sound and useful language.</small></a>
+        <a class="continue-card" href="priority.html"><span>🧭</span><strong>Choose for me</strong><small>Use the existing guided practice page when you want direction.</small></a>
       </div>
-      <article class="dashboard-card log-card">
-        <label>Best conversation<textarea id="bestConversation" placeholder="Who did you speak with? What did you discuss?"></textarea></label>
-        <label>Phrase I want to own<textarea id="ownedPhrase" placeholder="Thai phrase + natural meaning"></textarea></label>
-        <label>Where I got stuck<textarea id="stuckPoint" placeholder="What made you switch to English?"></textarea></label>
-        <button class="button secondary" id="saveLog">Save daily log</button>
-        <span class="save-status" id="saveStatus"></span>
-      </article>
     </section>
   </main>
 
-  <footer>Speak before studying. Real life before textbooks. Progress before perfection.</footer>
+  <footer>Follow curiosity. Use Thai. Come back when you fancy another go.</footer>
   <script src="dashboard.js"></script>
 </body>
 </html>
