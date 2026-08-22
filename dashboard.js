@@ -1,104 +1,114 @@
-const todayKey = new Date().toISOString().slice(0, 10);
-const habitsKey = `thai-os-habits-${todayKey}`;
-const logKey = `thai-os-log-${todayKey}`;
-const completionKey = 'thai-os-completed-days';
-
-const savedHabits = JSON.parse(localStorage.getItem(habitsKey) || '{}');
-document.querySelectorAll('[data-habit]').forEach((checkbox) => {
-  checkbox.checked = Boolean(savedHabits[checkbox.dataset.habit]);
-  checkbox.addEventListener('change', () => {
-    savedHabits[checkbox.dataset.habit] = checkbox.checked;
-    localStorage.setItem(habitsKey, JSON.stringify(savedHabits));
-  });
-});
-
-function getCompletedDays() {
-  return JSON.parse(localStorage.getItem(completionKey) || '[]');
-}
-
-function saveCompletedDays(days) {
-  localStorage.setItem(completionKey, JSON.stringify([...new Set(days)].sort()));
-}
-
-function calculateStreak(days) {
-  const completed = new Set(days);
-  const cursor = new Date();
-  let streak = 0;
-  while (completed.has(cursor.toISOString().slice(0, 10))) {
-    streak += 1;
-    cursor.setDate(cursor.getDate() - 1);
+const activities = {
+  music: {
+    eyebrow: 'Music',
+    title: 'Learn one bit of a song properly.',
+    intro: 'Don’t try to finish a whole song. Own one small section and let the rest stay enjoyable.',
+    steps: [
+      '5 min — listen once without stopping and pick one line you like.',
+      '10 min — work out the meaning, pronunciation and what makes the line natural Thai.',
+      '10 min — replay and say or sing the line until it feels familiar.',
+      '5 min — close the lyrics and see what you can remember.'
+    ],
+    actions: [{ label: 'Open song lessons →', href: 'songs/index.html' }]
+  },
+  phrases: {
+    eyebrow: 'Phrases',
+    title: 'Collect five phrases you would genuinely use.',
+    intro: 'Useful beats impressive. Pick language that belongs in your actual life.',
+    steps: [
+      '5 min — choose a situation: family, food, football, travel, boxing or complaining.',
+      '10 min — find five natural phrases for that situation.',
+      '10 min — say each phrase inside a different mini-sentence.',
+      '5 min — choose the one phrase you want to remember next time.'
+    ],
+    actions: [{ label: 'Open writing practice →', href: 'practice.html' }]
+  },
+  speak: {
+    eyebrow: 'Speak',
+    title: 'Have a messy Thai conversation.',
+    intro: 'The aim is not accuracy. The aim is staying in Thai long enough for your brain to stop reaching for English.',
+    steps: [
+      '5 min — pick an ordinary topic: today, dinner, football, family or what you watched.',
+      '10 min — talk to ChatGPT voice mostly in Thai. Ask for gentler corrections only when needed.',
+      '10 min — repeat the same topic but try to reuse three better phrases.',
+      '5 min — note the one thing you kept wanting to say but could not.'
+    ],
+    actions: []
+  },
+  watch: {
+    eyebrow: 'Watch',
+    title: 'Turn Netflix into a listening game.',
+    intro: 'You are hunting for meaning and patterns, not checking whether the subtitles are literal.',
+    steps: [
+      '10 min — watch Thai audio with English subtitles and listen for repeated words or endings.',
+      '10 min — pick three lines that caught your ear and replay each once.',
+      '5 min — copy the sound aloud without worrying about perfect translation.',
+      '5 min — keep one phrase you could imagine using yourself.'
+    ],
+    actions: []
+  },
+  read: {
+    eyebrow: 'Read',
+    title: 'Read one short thing twice.',
+    intro: 'First for meaning, then for sound. You do not need to decode every word.',
+    steps: [
+      '10 min — read a short Thai story or passage and work out the broad meaning.',
+      '10 min — read it aloud slowly, paying attention to words you recognise.',
+      '5 min — choose three useful words or chunks, not ten.',
+      '5 min — explain the passage back in very simple Thai.'
+    ],
+    actions: [{ label: 'Open Thai stories →', href: 'stories/index.html' }]
+  },
+  play: {
+    eyebrow: 'Play',
+    title: 'Make yourself retrieve Thai.',
+    intro: 'Recognition is easy. The game is getting Thai out of your head without looking.',
+    steps: [
+      '5 min — choose ten phrases you have seen before.',
+      '10 min — hide the Thai and try to produce it from the situation or meaning.',
+      '10 min — turn the misses into tiny spoken examples.',
+      '5 min — finish with a speed round: say as many as you can without checking.'
+    ],
+    actions: [{ label: 'Open guided practice →', href: 'priority.html' }]
   }
-  return streak;
-}
+};
 
-function renderStreak() {
-  const streak = calculateStreak(getCompletedDays());
-  document.getElementById('streakCount').textContent = `${streak} day${streak === 1 ? '' : 's'}`;
-}
+const buttons = [...document.querySelectorAll('[data-mode]')];
+const surpriseButton = document.getElementById('surpriseMe');
+const stage = document.getElementById('activityStage');
+const eyebrow = document.getElementById('activityEyebrow');
+const title = document.getElementById('activityTitle');
+const intro = document.getElementById('activityIntro');
+const steps = document.getElementById('activitySteps');
+const actions = document.getElementById('activityActions');
 
-document.getElementById('completeDay').addEventListener('click', () => {
-  const days = getCompletedDays();
-  if (!days.includes(todayKey)) days.push(todayKey);
-  saveCompletedDays(days);
-  renderStreak();
-  renderCalendar();
-  document.getElementById('completeDay').textContent = 'Today complete ✓';
-});
+function showActivity(mode) {
+  const activity = activities[mode];
+  if (!activity) return;
 
-const themes = ['Daily life', 'Family', 'Food', 'Boxing', 'Football', 'Travel', 'Review'];
-
-function dateKey(date) {
-  return date.toISOString().slice(0, 10);
-}
-
-function renderCalendar() {
-  const grid = document.getElementById('calendarGrid');
-  const completed = new Set(getCompletedDays());
-  grid.innerHTML = '';
-
-  for (let offset = 0; offset < 7; offset += 1) {
-    const date = new Date();
-    date.setDate(date.getDate() + offset);
-    const key = dateKey(date);
-    const card = document.createElement('article');
-    card.className = `calendar-day${completed.has(key) ? ' done' : ''}`;
-    card.innerHTML = `
-      <strong>${date.toLocaleDateString('en-GB', { weekday: 'short' })}</strong>
-      <span>${date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}</span>
-      <p>${themes[offset]}</p>
-      <button type="button">${completed.has(key) ? 'Complete ✓' : 'Mark complete'}</button>
-    `;
-    card.querySelector('button').addEventListener('click', () => {
-      const days = getCompletedDays();
-      if (days.includes(key)) {
-        saveCompletedDays(days.filter((day) => day !== key));
-      } else {
-        days.push(key);
-        saveCompletedDays(days);
-      }
-      renderCalendar();
-      renderStreak();
-    });
-    grid.appendChild(card);
-  }
-}
-
-const logFields = ['bestConversation', 'ownedPhrase', 'stuckPoint'];
-const savedLog = JSON.parse(localStorage.getItem(logKey) || '{}');
-logFields.forEach((id) => {
-  document.getElementById(id).value = savedLog[id] || '';
-});
-
-document.getElementById('saveLog').addEventListener('click', () => {
-  const log = {};
-  logFields.forEach((id) => {
-    log[id] = document.getElementById(id).value.trim();
+  buttons.forEach((button) => {
+    const active = button.dataset.mode === mode;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
   });
-  localStorage.setItem(logKey, JSON.stringify(log));
-  const status = document.getElementById('saveStatus');
-  status.textContent = 'Saved on this device ✓';
-  window.setTimeout(() => { status.textContent = ''; }, 2500);
+
+  eyebrow.textContent = activity.eyebrow;
+  title.textContent = activity.title;
+  intro.textContent = activity.intro;
+  steps.innerHTML = activity.steps.map((step) => `<li>${step}</li>`).join('');
+  actions.innerHTML = activity.actions.map((action) => `<a class="button" href="${action.href}">${action.label}</a>`).join('');
+
+  stage.classList.add('active');
+  stage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+buttons.forEach((button) => {
+  button.setAttribute('aria-pressed', 'false');
+  button.addEventListener('click', () => showActivity(button.dataset.mode));
 });
 
-renderStreak();
-renderCalendar();
+surpriseButton.addEventListener('click', () => {
+  const modes = Object.keys(activities);
+  const mode = modes[Math.floor(Math.random() * modes.length)];
+  showActivity(mode);
+});
