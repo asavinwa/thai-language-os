@@ -11,17 +11,15 @@ Every full song lesson must follow the same interactive structure as the establi
 
 A song page is not a static study guide, summary, playlist entry or generic 30-minute exercise.
 
-## 2. Lyrics must come from the site owner
+## 2. Lyrics can be supplied or researched
 
-Do not fetch, scrape, search for, reconstruct or import song lyrics from the web or any external source.
+Lyrics supplied by the site owner are the preferred source of record because they can be used directly to build the full phrase-by-phrase lesson.
 
-If the user asks to add a song but has not supplied the lyrics:
+If the user asks to add a song but has not supplied lyrics, it is acceptable to search for reliable lyric sources to identify, verify and research the language in the song. Do not invent or reconstruct missing lyrics from memory.
 
-1. Add the song to the listening / future lesson queue if useful.
-2. Ask the user to paste or supply the lyrics.
-3. Do not build the full phrase-by-phrase lesson until the lyrics have been supplied by the user.
+When external lyrics are used, respect copyright constraints: use them as research/reference material and only reproduce the amount permitted. If a complete line-by-line guided lesson requires more lyric text than can appropriately be reproduced from an external source, ask the user to paste or supply the lyrics. Once the user supplies them, treat that text as the source of record for the lesson.
 
-Once lyrics are supplied by the user, treat that supplied text as the source of record for the lesson.
+A song can also be added to the listening / future lesson queue before a full lesson is ready.
 
 ## 3. Required full lesson structure
 
@@ -44,7 +42,7 @@ A completed song lesson should match the established guided-song experience and 
 - Write-from-memory practice
 - Vocabulary encounter tracking where supported by the existing lesson system
 
-The lesson should work through the meaningful lines of the supplied song rather than selecting a handful of disconnected vocabulary items.
+The lesson should work through the meaningful lines of the song rather than selecting a handful of disconnected vocabulary items.
 
 ## 4. Repetition in songs
 
@@ -65,6 +63,6 @@ Reuse the existing HTML, CSS and JavaScript conventions before adding new compon
 
 ## 7. Queue vs lesson
 
-A song without user-supplied lyrics can appear in the song queue.
+A song can appear in the song queue before its lesson is complete.
 
-A song should only be labelled a full guided lesson when the phrase-by-phrase lesson has actually been built from user-supplied lyrics.
+Only label a song a full guided lesson when it genuinely matches the established phrase-by-phrase format. If the full source text is needed and has not been supplied, ask the user for the lyrics rather than publishing a shallow substitute.
