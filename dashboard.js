@@ -25,15 +25,18 @@ const activities = {
   },
   music: {
     eyebrow: 'Music',
-    title: 'Learn one bit of a song properly.',
-    intro: 'Don’t try to finish a whole song. Own one small section and let the rest stay enjoyable.',
+    title: 'Use familiar Thai songs as easy immersion.',
+    intro: 'Songs you already know are ideal for work, gaming and low-attention listening. Let familiar melodies carry the Thai while your brain keeps noticing words and chunks.',
     steps: [
-      '5 min — listen once without stopping and pick one line you like.',
-      '10 min — work out the meaning, pronunciation and what makes the line natural Thai.',
-      '10 min — replay and say or sing the line until it feels familiar.',
-      '5 min — close the lyrics and see what you can remember.'
+      '10 min — play the Thai learning Spotify playlist and let a familiar song run without stopping.',
+      '5 min — notice any words, chorus lines or sounds you recognise automatically.',
+      '10 min — if one line catches your ear, check it in the song lesson or say it aloud a few times.',
+      '5 min — go back to normal listening. The aim is repeated exposure, not turning every song into homework.'
     ],
-    actions: [{ label: 'Open song lessons →', href: 'songs/index.html' }]
+    actions: [
+      { label: 'Open Thai learning playlist →', href: 'https://open.spotify.com/playlist/7q2C6kGVQXjWUwRw8ONCjR' },
+      { label: 'Open song lessons →', href: 'songs/index.html' }
+    ]
   },
   phrases: {
     eyebrow: 'Phrases',
