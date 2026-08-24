@@ -7,84 +7,95 @@ const firstCommand = document.querySelector('#firstCommand');
 const primaryLink = document.querySelector('#primaryLink');
 
 const activityLibrary = {
+  listening: {
+    label: 'Train listening with ThaiPod101',
+    detail: 'Listen once for the gist, replay a short section, then identify three useful chunks. Do not try to decode every word.',
+    href: 'https://open.spotify.com/show/1nilDMDXl5EkT4mHWmHD30'
+  },
   speaking: {
-    label: 'Speak with ChatGPT in Thai',
-    detail: 'Use voice mode. Talk about your morning, your plans and one family topic. Ask for corrections only after you finish each answer.',
-    href: 'index.html#today'
+    label: 'Respond in Thai with ChatGPT voice',
+    detail: 'Use voice mode after listening. Talk about what you understood, then continue with one ordinary family topic.',
+    href: 'index.html'
   },
   story: {
     label: 'Read the interactive story aloud',
-    detail: 'Work through Ben arrives in Thailand. Read each line aloud before revealing the support. Repeat any difficult sentence three times.',
+    detail: 'Read for gist first, then aloud. Notice chunks you would expect to hear in conversation.',
     href: 'stories/ben-arrives-in-thailand.html'
   },
   music: {
-    label: 'Shadow one section of สิ่งที่ตามหา',
-    detail: 'Listen to a short section, follow the Thai, then speak with the singer. Do not study the entire song.',
-    href: 'songs/sing-thi-tam-ha.html'
-  },
-  writing: {
-    label: 'Write from memory',
-    detail: 'Type three sentences you used today without copying. Check them, correct them and type each corrected version once more.',
-    href: 'stories/ben-arrives-in-thailand.html'
+    label: 'Listen closely to one song section',
+    detail: 'Follow one small section, notice the sounds and keep one reusable phrase. Do not turn the whole song into homework.',
+    href: 'songs/index.html'
   },
   vocab: {
     label: 'Use Drops for focused vocabulary',
-    detail: 'Do one short session only. Stop when the timer ends and say five useful words in complete sentences.',
-    href: 'index.html#today'
+    detail: 'Do one short session. Pick five words that could help you understand real speech and say each inside a phrase.',
+    href: 'index.html'
+  },
+  writing: {
+    label: 'Write three useful chunks from memory',
+    detail: 'Write or type three phrases you heard or used today without copying, then check them.',
+    href: 'practice.html'
   },
   review: {
     label: 'Close the loop',
-    detail: 'Record one sentence you now own, one word you still miss and the exact topic the next session should revisit.',
-    href: 'index.html#today'
+    detail: 'Record one phrase you now recognise, one thing you still missed and one listening target for next time.',
+    href: 'index.html'
   }
 };
 
 function buildPlan(total, energy, recent) {
   const plans = [];
   let reason = '';
-  let mission = 'Own one useful sentence and use it aloud.';
+  let mission = 'Understand the gist, then respond.';
 
   if (recent === 'building' || recent === 'none') {
-    reason = 'You have spent more time around Thai than producing Thai. Speaking is the highest priority.';
-    plans.push(['speaking', Math.round(total * 0.4)]);
-    plans.push(['story', Math.round(total * 0.25)]);
-    plans.push(['writing', Math.round(total * 0.2)]);
-    plans.push(['review', total]);
-  } else if (recent === 'speaking') {
-    reason = 'You have already produced Thai recently. Consolidate it through reading, writing and a shorter speaking return.';
-    plans.push(['story', Math.round(total * 0.35)]);
-    plans.push(['writing', Math.round(total * 0.25)]);
+    reason = 'Understanding natural Thai is the current bottleneck. Start with focused listening, support it with vocabulary, then answer with Thai you understood.';
+    plans.push(['listening', Math.round(total * 0.4)]);
+    plans.push(['vocab', Math.round(total * 0.2)]);
     plans.push(['speaking', Math.round(total * 0.25)]);
     plans.push(['review', total]);
+  } else if (recent === 'listening') {
+    reason = 'You have already trained your ear. Convert what you heard into active language and reinforce the useful chunks.';
+    plans.push(['speaking', Math.round(total * 0.35)]);
+    plans.push(['vocab', Math.round(total * 0.2)]);
+    plans.push(['story', Math.round(total * 0.25)]);
+    plans.push(['review', total]);
+  } else if (recent === 'speaking') {
+    reason = 'Speaking is useful, but comprehension needs extra weight right now. Return to listening and make familiar speech easier to process.';
+    plans.push(['listening', Math.round(total * 0.4)]);
+    plans.push(['story', Math.round(total * 0.25)]);
+    plans.push(['vocab', Math.round(total * 0.2)]);
+    plans.push(['review', total]);
   } else if (recent === 'reading') {
-    reason = 'You have taken in Thai. Now retrieve and produce it without support.';
-    plans.push(['speaking', Math.round(total * 0.45)]);
-    plans.push(['writing', Math.round(total * 0.25)]);
-    plans.push(['story', Math.round(total * 0.15)]);
+    reason = 'You have taken in Thai visually. Now connect those words and patterns to natural sound.';
+    plans.push(['listening', Math.round(total * 0.45)]);
+    plans.push(['speaking', Math.round(total * 0.25)]);
+    plans.push(['vocab', Math.round(total * 0.15)]);
     plans.push(['review', total]);
   } else if (recent === 'music') {
-    reason = 'Music has given you input and motivation. Convert one lyric pattern into active spoken Thai.';
-    plans.push(['speaking', Math.round(total * 0.4)]);
-    plans.push(['music', Math.round(total * 0.25)]);
-    plans.push(['writing', Math.round(total * 0.2)]);
+    reason = 'Music is useful exposure. Follow it with clearer spoken Thai so everyday speech becomes easier to recognise.';
+    plans.push(['listening', Math.round(total * 0.4)]);
+    plans.push(['speaking', Math.round(total * 0.25)]);
+    plans.push(['music', Math.round(total * 0.2)]);
     plans.push(['review', total]);
   } else {
-    reason = 'Vocabulary only matters when you can retrieve it in context. Use the words in speech immediately.';
-    plans.push(['speaking', Math.round(total * 0.4)]);
+    reason = 'Vocabulary helps most when you can hear it at speed. Use Drops briefly, then put the words into listening and speech.';
+    plans.push(['listening', Math.round(total * 0.4)]);
     plans.push(['vocab', Math.round(total * 0.2)]);
-    plans.push(['writing', Math.round(total * 0.25)]);
+    plans.push(['speaking', Math.round(total * 0.25)]);
     plans.push(['review', total]);
   }
 
   if (energy === 'low') {
-    mission = 'Start easily, then speak before you stop.';
+    mission = 'Make Thai easy to start, but keep your ear involved.';
     const first = plans.shift();
     plans.unshift(['music', Math.max(5, Math.round(total * 0.2))]);
     plans.splice(1, 0, first);
   }
 
   if (energy === 'high' && total >= 45) {
-    mission = 'Produce Thai under pressure, then correct it.';
+    mission = 'Listen at natural speed, recover the gist and answer.';
   }
 
   let used = 0;
@@ -122,7 +133,7 @@ function renderPlan(total, energy, recent) {
   const firstActivity = activityLibrary[firstKey];
   firstCommand.textContent = `Start now: ${firstActivity.label.toLowerCase()} for ${result.plan[0][1]} minutes.`;
   primaryLink.href = firstActivity.href;
-  primaryLink.textContent = firstKey === 'speaking' ? 'Open today’s speaking prompt' : 'Open supporting lesson';
+  primaryLink.textContent = firstKey === 'listening' ? 'Open ThaiPod101' : 'Open supporting practice';
 
   localStorage.setItem('thaiPrioritySettings', JSON.stringify({ total, energy, recent }));
 }
