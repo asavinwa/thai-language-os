@@ -21,7 +21,7 @@ const activities = {
       '10 min — say a simple sentence or phrase with each word.',
       '5 min — try to recall the five words without opening Drops again.'
     ],
-    actions: []
+    actions: [{ label: 'Open Thai in Drops →', href: 'https://languagedrops.com/language/learn-thai' }]
   },
   music: {
     eyebrow: 'Music',
