@@ -1,4 +1,28 @@
 const activities = {
+  listen: {
+    eyebrow: 'Listening',
+    title: 'Train your ear with ThaiPod101.',
+    intro: 'Listening comprehension is the current bottleneck. The goal is to catch the gist first, then notice the chunks you missed.',
+    steps: [
+      '10 min — listen to one ThaiPod101 lesson or dialogue on Spotify without trying to understand every word.',
+      '8 min — replay a short section and write or say what you think is happening.',
+      '7 min — pick three useful chunks you heard and repeat them aloud.',
+      '5 min — listen once more and notice how much easier the same Thai feels.'
+    ],
+    actions: [{ label: 'Open ThaiPod101 on Spotify →', href: 'https://open.spotify.com/show/1nilDMDXl5EkT4mHWmHD30' }]
+  },
+  vocab: {
+    eyebrow: 'Vocabulary',
+    title: 'Use Drops, then make the words useful.',
+    intro: 'Drops is for widening recognition. Keep it short, then connect a few words to Thai you might actually hear or say.',
+    steps: [
+      '10 min — do one focused Drops session.',
+      '5 min — choose five words you genuinely want to remember.',
+      '10 min — say a simple sentence or phrase with each word.',
+      '5 min — try to recall the five words without opening Drops again.'
+    ],
+    actions: []
+  },
   music: {
     eyebrow: 'Music',
     title: 'Learn one bit of a song properly.',
@@ -37,12 +61,12 @@ const activities = {
   },
   watch: {
     eyebrow: 'Watch',
-    title: 'Turn Netflix into a listening game.',
-    intro: 'You are hunting for meaning and patterns, not checking whether the subtitles are literal.',
+    title: 'Turn Netflix into relaxed listening practice.',
+    intro: 'Keep the English subtitles on. You are hunting for meaning and recurring Thai, not pausing every thirty seconds.',
     steps: [
-      '10 min — watch Thai audio with English subtitles and listen for repeated words or endings.',
-      '10 min — pick three lines that caught your ear and replay each once.',
-      '5 min — copy the sound aloud without worrying about perfect translation.',
+      '15 min — watch Thai audio with English subtitles and follow the story normally.',
+      '5 min — notice repeated words, endings or phrases without stopping the episode.',
+      '5 min — pick one or two lines that caught your ear and say them aloud.',
       '5 min — keep one phrase you could imagine using yourself.'
     ],
     actions: []
@@ -109,6 +133,7 @@ buttons.forEach((button) => {
 
 surpriseButton.addEventListener('click', () => {
   const modes = Object.keys(activities);
-  const mode = modes[Math.floor(Math.random() * modes.length)];
+  const weightedModes = [...modes, 'listen', 'listen'];
+  const mode = weightedModes[Math.floor(Math.random() * weightedModes.length)];
   showActivity(mode);
 });
