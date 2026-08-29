@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>อยากร้องดังดัง — Learn Thai with music</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../navigation.css">
+  <link rel="stylesheet" href="phrase-breakdown.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">Thai Language OS 🇹🇭</a>
+    <nav><a href="../index.html">Play</a><a href="../priority.html">What to do now</a><a href="index.html" aria-current="page">Songs</a><a href="../stories/index.html">Stories</a><a href="../practice.html">Writing</a><a href="../reasons.html">Why Thai</a></nav>
+  </header>
+
+  <main>
+    <section class="hero song-hero">
+      <p class="eyebrow">Full guided lesson · Palmy</p>
+      <h1 class="thai">อยากร้องดังดัง</h1>
+      <p>A joyful song about hearing good news and suddenly seeing the whole world differently. Move through 18 guided phrases with natural English meanings, pronunciation, grammar and reusable spoken Thai.</p>
+    </section>
+
+    <section class="sticky-player">
+      <div class="sticky-player-copy"><span class="eyebrow">Listen while you learn</span><strong class="thai">อยากร้องดังดัง</strong></div>
+      <iframe class="video" src="https://www.youtube.com/embed/uEdyqBuRHr8" title="อยากร้องดังดัง by Palmy" allowfullscreen></iframe>
+    </section>
+
+    <section class="top-phrase-nav" aria-label="Phrase navigation">
+      <button class="button secondary" id="previous-phrase" type="button">← Previous</button>
+      <div class="top-phrase-progress"><span class="eyebrow" id="section-label">Lesson 1</span><strong><span id="phrase-number">1</span> / <span id="phrase-total">18</span></strong></div>
+      <button class="button" id="next-phrase" type="button">Next →</button>
+    </section>
+
+    <section class="guided-lesson" aria-live="polite">
+      <div class="lesson-toolbar">
+        <div><p class="eyebrow">Current section</p><h2 id="section-title">Everything feels different</h2></div>
+        <button class="save-phrase-button" id="save-phrase" type="button" aria-pressed="false">☆ Save phrase</button>
+      </div>
+
+      <div class="phrase-stage">
+        <p class="thai phrase-thai" id="phrase-thai"></p>
+        <p class="pronunciation" id="phrase-pronunciation"></p>
+        <div class="meaning-panel"><p class="panel-label">Natural meaning</p><p class="natural-meaning" id="phrase-meaning"></p></div>
+        <p><strong>Language note:</strong> <span id="phrase-note"></span></p>
+
+        <details class="phrase-breakdown" id="phrase-breakdown" open>
+          <summary>Explore this phrase word by word</summary>
+          <div class="breakdown-content">
+            <div class="breakdown-section"><p class="panel-label">Word breakdown</p><p class="word-history-intro">Look for chunks you could recognise in family conversation, ThaiPod or Netflix.</p><div class="word-breakdown-list" id="word-breakdown-list"></div></div>
+            <div class="breakdown-grid">
+              <section class="breakdown-card"><p class="panel-label">How it works</p><p id="phrase-grammar"></p></section>
+              <section class="breakdown-card"><p class="panel-label">Pattern to own</p><p class="thai pattern-thai" id="pattern-thai"></p><p id="pattern-meaning"></p></section>
+            </div>
+            <section class="breakdown-card"><p class="panel-label">Use it yourself</p><div id="phrase-examples"></div></section>
+            <section class="breakdown-card your-turn-card"><p class="panel-label">Your turn</p><p id="your-turn-prompt"></p></section>
+          </div>
+        </details>
+      </div>
+      <div class="lesson-dots" id="lesson-dots" aria-label="Jump to a phrase"></div>
+    </section>
+
+    <section class="practice-card guided-practice">
+      <p class="eyebrow">Write from memory</p><h2>Type the current phrase</h2>
+      <form id="guided-practice-form"><input id="guided-practice-input" lang="th" autocomplete="off" placeholder="พิมพ์ภาษาไทย"><button class="button" type="submit">Check answer</button><p class="feedback" id="guided-practice-feedback" aria-live="polite"></p></form>
+    </section>
+
+    <section class="practice-card content-section">
+      <p class="eyebrow">Continue through story</p>
+      <h2>The conversation he finally understood</h2>
+      <p>Meet the song’s useful patterns again in an original 14-sentence story about listening comprehension, family Thai and the moment familiar sounds finally start making sense.</p>
+      <a class="button" href="../stories/the-conversation-he-finally-understood.html">Read the related story →</a>
+    </section>
+  </main>
+
+  <footer>Lyrics supplied by the site owner for language-learning use. Translation and teaching notes are adapted for natural meaning rather than copied literally.</footer>
+  <script src="../script.js"></script>
+  <script src="yak-rong-dang-dang.js"></script>
+</body>
+</html>
